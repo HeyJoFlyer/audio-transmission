@@ -1,0 +1,22 @@
+import wave
+import scipy
+import numpy
+import sys
+import os
+import os.path
+
+def read():
+    folder = os.path.dirname(sys.argv[0])
+    file = os.path.join(folder, "bdt.wav")
+    with wave.open(file, "r") as wav:
+        sample_bytes = wav.getsampwidth()
+        samples_per_second = wav.getframerate()
+        audio_length = wav.getnframes()
+        raw_audio = wav.readframes(audio_length)
+        for i in range(50):
+            print(raw_audio[i])
+
+def read_scipy():
+    folder = os.path.dirname(sys.argv[0])
+    file = os.path.join(folder, "bdt.wav")
+read()
